@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  lsp:
+    build:
+      context: .
+      dockerfile: Dockerfile-lsp
+    volumes:
+      - .:$PWD
+      - ./vendor/bundle:/usr/local/bundle
+    working_dir: $PWD
+    ports:
+      - 7658:7658
