@@ -6,6 +6,7 @@ RUN apt-get update \
               socat \
       && rm -rf /var/lib/apt/lists/*
 
+VOLUME /usr/local/bundle
 COPY docker-entrypoint-lsp.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint-lsp.sh"]
 CMD ["socat", "TCP4-LISTEN:7658,reuseaddr,fork", "EXEC:'solargraph stdio'"]

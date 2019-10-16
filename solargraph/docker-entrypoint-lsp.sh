@@ -2,7 +2,7 @@
 set -e
 
 gem install solargraph
-bundle install --quiet
+bundle install
 yard gems
 
 exec "$@"

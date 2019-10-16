@@ -6,7 +6,6 @@ services:
       dockerfile: Dockerfile-lsp
     volumes:
       - .:$PWD
-      - ./vendor/bundle:/usr/local/bundle
     working_dir: $PWD
     ports:
       - 7658:7658
