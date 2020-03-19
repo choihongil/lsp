@@ -1,12 +1,6 @@
 FROM ruby:2.6.3
 
-# socat
-RUN apt-get update \
-      && apt-get install --yes --no-install-recommends \
-              socat \
-      && rm -rf /var/lib/apt/lists/*
-
 VOLUME /usr/local/bundle
 COPY docker-entrypoint-lsp.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint-lsp.sh"]
-CMD ["socat", "TCP4-LISTEN:7658,reuseaddr,fork", "EXEC:'solargraph stdio'"]
+CMD ["solargraph", "socket", "--host", "0.0.0.0", "--port", "7658"]
